@@ -1,8 +1,10 @@
 <?php
 
+// Import
 require 'singleton.php';
 require 'factory.php';
 require 'dependency_injection.php';
+require 'observer.php';
 
 // Singleton
 echo 'Singleton exercice : ';
@@ -12,14 +14,12 @@ $id0 = spl_object_id($president0);
 $president1 = President::getInstance('Nicolas', 'Sarkozy');
 $id1 = spl_object_id($president1);
 
-
 if ($id0 == $id1) {
     echo 'Singleton works';
 
 } else {
     echo 'Singleton not working';
 }
-
 echo '/n';
 
 // Factory
@@ -35,3 +35,17 @@ $tasks[] = 'Faire à manger';
 print_r($tasks);
 $toDoListFactory = new ToDoListFactory();
 $toDoList = $toDoListFactory->createToDoList($tasks);
+
+// Observer
+
+$topic = new Topic();
+
+$observerOne = new ObserverOne();
+$topic->attach($observerOne);
+
+$observerTwo = new ObserverTwo();
+$topic->attach($observerTwo);
+
+$topic->doSomething();
+$topic->doSomething();
+$topic->doSomething();
