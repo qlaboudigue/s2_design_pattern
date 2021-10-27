@@ -28,6 +28,10 @@ $items[] = $item1;
 $items[] = $item2;
 $items[] = $item3;
 print_r($items);
+for($i=0; $i<= count($items) - 1; $i++) {
+    echo 'List iteration';
+    echo $items[$i];
+}
 
 $list = array();
 $list[] = 'string 1';

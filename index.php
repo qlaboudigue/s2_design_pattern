@@ -20,7 +20,7 @@ if ($id0 == $id1) {
     echo 'Singleton not working';
 }
 
-echo '\n';
+echo '/n';
 
 // Factory
 
@@ -29,6 +29,9 @@ $connector = $factory->createConnector();
 
 // Dependency injection
 
-$tasks = array("Faire les courses", "Payer ses impôts");
+$tasks = array();
+$tasks[] = 'Faire les courses';
+$tasks[] = 'Faire à manger';
+print_r($tasks);
 $toDoListFactory = new ToDoListFactory();
-$toDoList = $toDoListFactory->createToDoList("Test");
+$toDoList = $toDoListFactory->createToDoList($tasks);

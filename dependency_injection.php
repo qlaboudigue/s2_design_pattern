@@ -3,12 +3,12 @@
 class ToDoList {
 
     // Properties
-    public $card;
+    public $cards;
 
     // Constructor
-    public function __construct($card)
+    public function __construct($cards)
     {
-        $this->card = $card;
+        $this->cards = $cards;
         /**
          * Instead of:
          * $this->card = new Card($label);
@@ -35,31 +35,32 @@ class Card {
         $this->label = $label;
     }
 
-    public function getLabel() {
+    public function __toString()
+    {
         return $this->label;
     }
+
 
 }
 
 class ToDoListFactory {
 
-    public function createToDoList($label) {
+    public function createToDoList($tasks) {
 
-        // $cards = [];
-        /**
-         * for($i=0;$i<=count($tasks);$i++){
-            * Instanciate cards list
-           * $card = new Card($tasks[$i]);
-          *  // Add instance to $cards
-         *   $cards[] = $card;
-         * }
-         * 
-         */
+        $cards = array();
+
+        for($i=0;$i<count($tasks);$i++){
+        // Instanciate cards list
+         $card = new Card($tasks[$i]);
+        // Add instance to $cards
+            $cards[] = $card;
+        }
+       
         
         
         // Instanciate to do list
         echo 'To do list created';
-        return new ToDoList($label);
+        return new ToDoList($cards);
 
     }
 
