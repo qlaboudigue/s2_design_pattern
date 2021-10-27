@@ -2,6 +2,7 @@
 
 require 'singleton.php';
 require 'factory.php';
+require 'dependency_injection.php';
 
 // Singleton
 echo 'Singleton exercice : ';
@@ -26,3 +27,8 @@ echo '\n';
 $factory = new Factory(false);
 $connector = $factory->createConnector();
 
+// Dependency injection
+
+$tasks = array("Faire les courses", "Payer ses impôts");
+$toDoListFactory = new ToDoListFactory();
+$toDoList = $toDoListFactory->createToDoList("Test");
